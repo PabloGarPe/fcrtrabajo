@@ -1,0 +1,65 @@
+# 🟢 Archivos de configuración del IDE
+.vs/
+*.suo
+*.user
+*.userossc
+*.sln.docstates
+
+# 🟢 Archivos del compilador y salida de compilación
+*.obj
+*.pch
+*.pdb
+*.ilk
+*.idb
+*.tlog
+*.lastbuildstate
+*.log
+
+# 🟢 Ejecutables y bibliotecas
+*.exe
+*.dll
+*.lib
+*.exp
+*.iobj
+*.ipdb
+
+# 🟢 Archivos de precompilación y depuración
+*.aps
+*.ncb
+*.sdf
+*.opendb
+*.VC.db
+*.cache
+
+# 🟢 Carpetas de salida de compilación
+Debug/
+Release/
+x64/
+x86/
+ARM/
+ARM64/
+
+# 🟢 Archivos de proyectos de Visual Studio (si no se versionan manualmente)
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# 🟢 Archivos de CMake generados
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+CTestTestfile.cmake
+cmake_install.cmake
+
+# 🟢 Archivos de dependencias de paquetes
+packages/
+vcpkg_installed/
+*.nuget.props
+*.nuget.targets
+
+# 🟢 Archivos temporales y de logs
+*.tmp
+*.log
+*.tlog
+*.ipch
