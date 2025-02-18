@@ -1,9 +1,9 @@
 "# fcrtrabajo" 
 
-FER ->
+FER -> ControlIlnAsm()
 
-DIEGO ->
+DIEGO -> ControlWithReversedStrings()
 
-JORGE -> 
+JORGE -> CheckArray()
 
-PABLO -> 
+PABLO -> MaskControl()
