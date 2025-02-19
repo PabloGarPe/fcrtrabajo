@@ -40,7 +40,6 @@ ARM/
 ARM64/
 
 # 🟢 Archivos de proyectos de Visual Studio (si no se versionan manualmente)
-*.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
 
