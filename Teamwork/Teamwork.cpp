@@ -23,7 +23,7 @@ void MaskControl() {
 	cout << endl;
 
 	if ((a & firstMask) != 0) {
-		cout << "Acceso err�neo";
+		cout << "Acceso erróneo";
 		//exit()
 	}
 
@@ -41,11 +41,27 @@ void MaskControl() {
 	if (number <= 0) {
 		cout << "Hubo algun fallo";
 		//exit
+//ID: 300028
+
+void ControlInAsm() {
+	using std::cout;
+	using std::cin;
+
+	int unsigned a, b, c;
+
+	cin >> a;
+	cin >> b;
+	cin >> c;
+
+	if (IsValidAssembly(a, b, c) == 0) {
+		cout << "Algo salió mal" << std::endl;
+		//exit();
 	}
 }
 
 int main()
 {
 	MaskControl();
+	ControlInAsm();
 	return 0;
 }
