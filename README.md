@@ -30,8 +30,8 @@ El proyecto se dividirá de la siguiente manera:
 | Tarea                | Responsable       | Estado |
 |----------------------|-------------------|------------------|
 | ControlWithReversedStrings | Diego |Pendiente           |
-| MaskControl          | Pablo |Pendiente           |
-| ControlInAsm         | Fernando |Pendiente           |
+| MaskControl          | Pablo |Falta Testeo           |
+| ControlInAsm         | Fernando |Falta Testeo          |
 | CheckArray           | Jorge |Pendiente           |
 
 ## Contribuciones
