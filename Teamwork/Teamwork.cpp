@@ -43,8 +43,8 @@ void MaskControl() {
 		//exit
 	}
 }
-//ID: 300028
 
+//ID: 299928
 void ControlInAsm() {
 	using std::cout;
 	using std::cin;
@@ -63,7 +63,7 @@ void ControlInAsm() {
 
 int main()
 {
-	MaskControl();
+	//MaskControl();
 	ControlInAsm();
 	return 0;
 }
