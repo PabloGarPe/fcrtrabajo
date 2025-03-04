@@ -10,9 +10,14 @@ IsValidAssembly PROC
 push ebp
 mov ebp, esp
 
+push eax
+push ebx
+push ecx
 
 
+; Primera condicion
 mov eax, [ebp+4] ; eax = a
+
 
 mov ebx, 0
 not ebx; Todo 1s
@@ -51,6 +56,10 @@ mov eax, 1
 
 
 Epilogo:
+	pop ecx
+	pop ebx
+	pop eax
+
 	mov esp, ebp
 	pop ebp
 	ret

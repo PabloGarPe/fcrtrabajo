@@ -49,7 +49,9 @@ void ControlInAsm() {
 	using std::cout;
 	using std::cin;
 
-	int unsigned a, b, c;
+	int a = 0;
+	int b = 0;
+	int c = 0;
 
 	cin >> a;
 	cin >> b;
