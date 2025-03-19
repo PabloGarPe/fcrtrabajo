@@ -63,6 +63,24 @@ void ControlInAsm() {
 	}
 }
 
+void CheckArray() {
+	using std::cout;
+	using std::cin;
+	using std::endl;
+
+	unsigned char array[3];
+
+	cout << "Ingrese tres valores enteros (8 bits): ";
+	cin >> array[0] >> array[1] >> array[2];
+
+	unsigned char result = array[0] & array[1] & array[2];
+
+	if (result != 200) {  // 200 en decimal = 11001000 en binario
+		cout << "Fallo" << endl;
+		//exit();
+	}
+}
+
 int main()
 {
 	//MaskControl();
