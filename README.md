@@ -32,7 +32,7 @@ El proyecto se dividirá de la siguiente manera:
 | ControlWithReversedStrings | Diego |Pendiente           |
 | MaskControl          | Pablo |Falta Testeo           |
 | ControlInAsm         | Fernando |Falta Testeo          |
-| CheckArray           | Jorge |Pendiente           |
+| CheckArray           | Jorge |Falta Testeo           |
 
 ## Contribuciones
 Las contribuciones al proyecto deberán seguir el siguiente flujo:
