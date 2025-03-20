@@ -10,17 +10,16 @@ IsValidAssembly PROC
 push ebp
 mov ebp, esp
 
-push eax
 push ebx
 push ecx
 
 
 ; Primera condicion
-mov eax, [ebp+4] ; eax = a
+mov eax, [ebp+8] ; eax = a
 
 
 mov ebx, 0
-not ebx; Todo 1s
+not ebx; Todo 1s 
 shr ebx, 23 ; Deja tantos 1s como diga Id[1] (32 - 9)
 
 and eax, ebx; 
@@ -33,8 +32,8 @@ JC falso; < 0
 
 ; Segunda condicion
 
-mov eax, [ebp+8] ; eax = b
-mov ebx, [ebp+12] ; ebx = c
+mov eax, [ebp+12] ; eax = b
+mov ebx, [ebp+16] ; ebx = c
 
 mov ecx, 1; 1
 shl ecx, 9; Id[2] = 9
@@ -47,26 +46,32 @@ shr ebx, 7; Lo dejo en la posicion 0
 
 cmp eax, ebx; eax - ebx != 0 implica falso
 
-JC falso; < 0
-JNZ falso; > 0
+
+JZ verdadero
+JMP falso
+;JC falso; < 0
+;JNZ falso; > 0
 
 
 ; Pasa las dos condiciones
-mov eax, 1
+jmp verdadero
+
+verdadero:
+	mov eax, 1
+	jmp Epilogo
+
+falso:
+	mov eax, 0
+	jmp Epilogo
 
 
 Epilogo:
 	pop ecx
 	pop ebx
-	pop eax
 
 	mov esp, ebp
 	pop ebp
 	ret
-
-falso:
-	mov eax, 0
-	jmp Epilogo
 
 
 IsValidAssembly ENDP
