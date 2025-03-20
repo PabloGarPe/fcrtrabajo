@@ -2,18 +2,16 @@
 
 extern "C" bool IsValidAssembly(int a, int b, int c);
 
-//300028
-void MaskControl() {
-	using std::cout;
-	using std::cin;
-	using std::endl;
+using namespace std;
 
+//299928
+void MaskControl() {
 	unsigned int a;
 	unsigned int b;
 
-	unsigned int firstMask = 0x1; // 00000000 00000000 00000000 00000001
+	unsigned int firstMask = 0x200; // 00000000 00000000 00000010 00000000
 	unsigned int secondMask = 0x100; // 00000000 00000000 00000001 00000000
-	unsigned int thirdMask = 0x8; // 00000000 00000000 00000000 00001000
+	unsigned int thirdMask = 0x4; // 00000000 00000000 00000000 00000100
 	unsigned int highMask = 0x0; // 00000000 00000000 00000000 00000000
 	unsigned int lowMask = 0xFFFFFFFF;
 
@@ -26,29 +24,27 @@ void MaskControl() {
 
 	if ((a & firstMask) != 0) {
 		cout << "Acceso erróneo";
-		//exit()
+		exit(1);
 	}
 
-	if ((a & secondMask) != (b & thirdMask)) {
+	if (((a & secondMask) >> 8) != ((b & thirdMask) >>2)) {
 		cout << "Intruso detectado";
-		//exit()
+		exit(1);
 	}
 
-	unsigned int highBits = a & highMask;
-	unsigned int lowBits = b & lowMask;
-	unsigned int number = highBits | lowBits;
+	unsigned int bitsBajos = 32 - 9;
+	unsigned int bitsA = (a >> bitsBajos) << bitsBajos;
+	unsigned int bitsB = b & ((1 << bitsBajos) - 1);
+	unsigned int number = bitsA | bitsB;
 
-	if (number <= 0) {
+	if (number <= 900) {
 		cout << "Hubo algun fallo";
-		//exit
+		exit(1);
 	}
 }
 
 //ID: 299928
 void ControlInAsm() {
-	using std::cout;
-	using std::cin;
-
 	int a = 0;
 	int b = 0;
 	int c = 0;
@@ -59,15 +55,11 @@ void ControlInAsm() {
 
 	if (IsValidAssembly(a, b, c) == 0) {
 		cout << "Algo salió mal" << std::endl;
-		//exit();
+		exit(1);
 	}
 }
 
 void CheckArray() {
-	using std::cout;
-	using std::cin;
-	using std::endl;
-
 	unsigned char array[3];
 
 	cout << "Ingrese tres valores enteros (8 bits): ";
@@ -77,13 +69,13 @@ void CheckArray() {
 
 	if (result != 200) {  // 200 en decimal = 11001000 en binario
 		cout << "Fallo" << endl;
-		//exit();
+		exit(1);
 	}
 }
 
 int main()
 {
-	//MaskControl();
+	MaskControl();
 	ControlInAsm();
 	return 0;
 }
