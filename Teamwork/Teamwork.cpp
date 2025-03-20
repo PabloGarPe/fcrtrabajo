@@ -12,8 +12,6 @@ void MaskControl() {
 	unsigned int firstMask = 0x200; // 00000000 00000000 00000010 00000000
 	unsigned int secondMask = 0x100; // 00000000 00000000 00000001 00000000
 	unsigned int thirdMask = 0x4; // 00000000 00000000 00000000 00000100
-	unsigned int highMask = 0x0; // 00000000 00000000 00000000 00000000
-	unsigned int lowMask = 0xFFFFFFFF;
 
 
 	cout << "Ingresa el primer numero: ";
@@ -21,22 +19,23 @@ void MaskControl() {
 	cout << endl << "Ingresa el segundo numero: ";
 	cin >> b;
 	cout << endl;
-
+	//Se comprueba si el bit en la posicion 9 es 0
 	if ((a & firstMask) != 0) {
 		cout << "Acceso erróneo";
 		exit(1);
 	}
-
+	//Se comprueba si el bit en la posicion 8 del primer numero es igual al bit en la posicion 2 del segundo numero
 	if (((a & secondMask) >> 8) != ((b & thirdMask) >>2)) {
 		cout << "Intruso detectado";
 		exit(1);
 	}
 
-	unsigned int bitsBajos = 32 - 9;
-	unsigned int bitsA = (a >> bitsBajos) << bitsBajos;
-	unsigned int bitsB = b & ((1 << bitsBajos) - 1);
-	unsigned int number = bitsA | bitsB;
+	unsigned int bitsBajos = 32 - 9; //Obitne los bits bajos segun el enunciado
+	unsigned int bitsA = (a >> bitsBajos) << bitsBajos; //Nos quedamos con los 9 bits mas altos del primer numero
+	unsigned int bitsB = b & ((1 << bitsBajos) - 1); //Nos quedamos con los bits bajos del segundo numero
+	unsigned int number = bitsA | bitsB; //Calculamos el numero
 
+	//Hacemos la comprobación pedida en el guión
 	if (number <= 900) {
 		cout << "Hubo algun fallo";
 		exit(1);
