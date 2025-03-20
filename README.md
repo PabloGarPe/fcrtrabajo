@@ -29,7 +29,7 @@ El proyecto se dividirá de la siguiente manera:
 
 | Tarea                | Responsable       | Estado |
 |----------------------|-------------------|------------------|
-| ControlWithReversedStrings | Diego |Pendiente           |
+| ControlWithReversedStrings | Diego |Falta Testeo           |
 | MaskControl          | Pablo |Falta Testeo           |
 | ControlInAsm         | Fernando |Falta Testeo          |
 | CheckArray           | Jorge |Falta Testeo           |
