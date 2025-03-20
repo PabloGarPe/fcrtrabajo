@@ -4,6 +4,40 @@ extern "C" bool IsValidAssembly(int a, int b, int c);
 
 using namespace std;
 
+
+
+void ControlWithReversedStrings() {
+	//Almacena la cadena de caracteres (no es válido usar string)
+	char string1[20];
+	char string2[20];
+
+	//Primera cadena
+	cout << "Ingrese una cadena de caracteres: ";
+	cin >> string1;
+
+	/**
+	* Si la cadena es menor a 10 caracteres o si el caracter en la posición ID[2] = 0 es distinto al de la
+	* posición ID[5] = 8, entonces se imprime "Acceso incorrecto" y se llamará a la función exit
+	*/
+	if (strlen(string1) < 10 || string1[0] != string1[8]) {
+		cout << "Acceso incorrecto" << endl;
+		exit(1);
+	}
+
+	//Segunda cadena
+	cout << "Ingrese otra cadena de caracteres: ";
+	cin >> string2;
+
+	/**
+	* Comprobar si la inversa de la cadena es 9n7g4fd1 y, en caso contrario, imprimir "El acceso no fue correcto" y llamar a exit
+	*/
+	if (strcmp(strrev(string2), "9n7g4fd1") != 0) {
+		cout << "El acceso no fue correcto" << endl;
+		exit(1);
+	}
+
+}
+
 //299928
 void MaskControl() {
 	unsigned int a;
@@ -72,9 +106,12 @@ void CheckArray() {
 	}
 }
 
+
 int main()
 {
+	ControlWithReversedStrings();
 	MaskControl();
 	ControlInAsm();
+	//TODO: Faltaría llamar a la función CheckArray no?
 	return 0;
 }
