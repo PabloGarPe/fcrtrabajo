@@ -1,0 +1,200 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amsfonts, amssymb, mathtools} % Podemos añadir amssymb, amsthm o bm
+\usepackage{graphicx, xparse}
+\usepackage[top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry} % Este paquete permite modificar los márgenes del documento
+\usepackage[colorlinks=true, allcolors=blue]{hyperref} % Se indica que los hipervínculos van todos en azul
+\usepackage{setspace}
+\usepackage{xcolor, tcolorbox}
+\usepackage{cancel} %tachar cosas
+\tcbuselibrary{breakable}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes.geometric,fit,backgrounds}
+\usepackage{listings, lstautogobble}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\graphicspath{ {images/}}
+
+
+\lstset{
+    language=SQL,
+    inputencoding=utf8,
+    basicstyle=\ttfamily\footnotesize,
+    stringstyle=\ttfamily\color{verdeSuave},
+    commentstyle=\ttfamily\itshape\color{gray},
+    emph={IS, NULLS, ROW, OFFSET, FETCH, WITH, TIES, PERCENT, REFERENCES, TRUNCATE, ADD_MONTHS, LAST_DAY, MONTHS_BETWEEN, NEXT_DAY, ROUND, TRUNC, EXTRACT, TO_CHAR, TO_DATE, TO_NUMBER, MERGE},
+    emphstyle={\color{blue}\bfseries},
+    keywordstyle=\color{blue}\bfseries,
+    morekeywords={SELECT, FROM, WHERE, INSERT, INTO, VALUES, UPDATE, SET, DELETE, JOIN, ON, CREATE, TABLE, DROP, ALTER, ADD, PRIMARY, KEY, FOREIGN, REFERENCES, CONSTRAINT, AND, OR, NOT, NULL, AS, DISTINCT, GROUP, BY, ORDER, HAVING, IN, BETWEEN, LIKE, IS},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    xleftmargin=10pt,
+    frame=shadowbox,
+    breaklines=true,
+    extendedchars=true,    % Habilitar caracteres extendidos
+    autogobble=true,
+    tabsize=4, % Cambia el tamaño del tabulador aquí
+    literate=%
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {ñ}{{\~n}}1 {Ñ}{{\~N}}1
+}
+
+
+
+%Colores
+\definecolor{blanco}{HTML}{FFFFFF}
+\definecolor{negro}{HTML}{000000}
+\definecolor{azulSuave}{HTML}{6ac9d5}
+\definecolor{naranjaSuave}{HTML}{d5956a}
+\definecolor{verdeSuave}{HTML}{6ad578}
+\definecolor{verdeHoja}{HTML}{006400}
+\definecolor{naranjaDuro}{HTML}{bd2d0e}
+
+
+
+\titleformat{\part}[display]
+  {\normalfont\Huge\bfseries} % Estilo del texto
+  {}           % Prefijo antes del título de la parte
+  {20pt}                      % Separación entre "Parte I" y el título
+  {\Huge}                     % Estilo del título de la parte
+
+
+
+%Colores
+\definecolor{blanco}{HTML}{FFFFFF}
+\definecolor{negro}{HTML}{000000}
+\definecolor{azulSuave}{HTML}{6ac9d5}
+\definecolor{naranjaSuave}{HTML}{d5956a}
+\definecolor{verdeSuave}{HTML}{6ad578}
+\definecolor{magenta}{HTML}{FF00FF}
+\definecolor{dorado}{HTML}{ad8a1f}
+\definecolor{amarilloPastel}{RGB}{255, 249, 196} % Amarillo pastel claro
+\definecolor{amarilloOscuro}{RGB}{253, 216, 100}  % Amarillo más oscuro
+\definecolor{grisSuave}{RGB}{230, 230, 230}      % Gris suave
+\definecolor{negro}{RGB}{0, 0, 0}                % Negro puro
+
+\newtcolorbox{dem_box}[1]{
+before=\par\smallskip\centering,
+colframe=azulSuave!70,
+colback=white,
+fonttitle=\bfseries,
+coltitle=negro,
+title=#1,
+flushleft title,
+width=1\linewidth,
+breakable = true
+}
+
+\newtcolorbox{ejem_box}[1]{
+before=\par\smallskip\centering,
+colframe=verdeSuave!70,
+colback=white,
+fonttitle=\bfseries,
+coltitle=negro,
+title=#1,
+flushleft title,
+width=1\linewidth,
+breakable = true
+}
+
+\newtcolorbox{ej_box}[1]{
+before=\par\smallskip\centering,
+colframe=naranjaSuave!70,
+colback=white,
+fonttitle=\bfseries,
+coltitle=negro,
+title=#1,
+flushleft title,
+width=1\linewidth,
+breakable = true
+}
+
+\newtcolorbox{mod_box}[1]{
+before=\par\smallskip\centering,
+colframe=amarilloOscuro!85,
+colback=amarilloPastel!30,
+fonttitle=\bfseries,
+coltitle=negro,
+title=#1,
+flushleft title,
+width=0.94\textwidth,
+breakable = true
+}
+
+
+
+\setstretch{1.2}
+\decimalpoint
+
+% \title{\textbf{BASES DE DATOS: } EJERCICIOS RESUELTOS}
+% \author{Diego Díaz Mendaña}
+%\date{Fecha}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        % Logo de la institución
+        \includegraphics[width=0.3\textwidth]{logo_escuela.png} \\[1cm] % Cambiar logo_escuela por el nombre del archivo con el logo
+        \vspace{1cm}
+        
+        \textbf{\LARGE ESCUELA DE INGENIERÍA INFORMÁTICA DE OVIEDO} \\[1.5cm]
+        
+        \rule{\linewidth}{0.5mm} \\[0.4cm]
+        \textbf{\Huge Fundamentos de Computadores Y Redes} \\[0.3cm]
+        \rule{\linewidth}{0.5mm} \\[1cm]
+        
+        {\Large Curso 2024-2025} \\[1.5cm]
+        
+        \textbf{\LARGE Trabajo Grupal - Fase I} \\[0.8cm]
+        
+        \text{Díaz Mendaña, Diego - UO301887}\\[0.15cm]
+        \text{García Pernas, Pablo - UO??????}\\[0.15cm]
+        \text{Gota ?, Jorge - UO???????}\\[0.15cm]
+        \text{Suárez Fernández, Fernando - UO300028}
+        
+        \vfill
+        
+        % Información del alumno
+        \begin{flushright}
+
+            \textbf{Grupo de prácticas:} ? \\[0.3cm]
+            \textbf{Titulación:} PCEO Informática y Matemáticas \\[0.3cm]
+        \end{flushright}
+        
+        \vfill
+        
+        \today \\[1cm]
+    \end{center}
+  \end{titlepage}
+
+\newpage
+\hypersetup{linkcolor=black}
+\tableofcontents
+\hypersetup{linkcolor=blue}
+\newpage
+
+\section{Introducción}
+-- Breve explicación
+
+\section{ID}
+-- Explicación de la ID
+
+\section{Desarrollo del programa}
+\subsection{Descripción general}
+-- Descripción general del programa + lenguajes
+
+\subsection{Funciones implementadas}
+-- Descripción de las funciones implementadas con: nombre, descripción, lógica, fragmentos relevantes de código, ejemplo de entrada válida, ejemplo de entrada inválida, ejemplo de salida
+
+\section{Cuestiones}
+
+\subsection{Distribución del trabajo}
+
+\end{document}
