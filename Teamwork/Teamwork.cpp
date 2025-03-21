@@ -112,6 +112,6 @@ int main()
 	ControlWithReversedStrings();
 	MaskControl();
 	ControlInAsm();
-	//TODO: Faltaría llamar a la función CheckArray no?
+	CheckArray();
 	return 0;
 }
