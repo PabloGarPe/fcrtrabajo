@@ -28,6 +28,7 @@ void ControlWithReversedStrings() {
 	cout << "Ingrese otra cadena de caracteres: ";
 	cin >> string2;
 
+
 	/**
 	* Comprobar si la inversa de la cadena es 9n7g4fd1 y, en caso contrario, imprimir "El acceso no fue correcto" y llamar a exit
 	*/
@@ -35,6 +36,8 @@ void ControlWithReversedStrings() {
 		cout << "El acceso no fue correcto" << endl;
 		exit(EXIT_FAILURE);
 	}
+
+	cout << endl;
 
 }
 
@@ -50,9 +53,8 @@ void MaskControl() {
 
 	cout << "Ingresa el primer numero: ";
 	cin >> a;
-	cout << endl << "Ingresa el segundo numero: ";
+	cout << "Ingresa el segundo numero: ";
 	cin >> b;
-	cout << endl;
 	//Se comprueba si el bit en la posicion 9 es 0
 	if ((a & firstMask) != 0) {
 		cout << "Acceso erroneo" << endl;
@@ -74,6 +76,9 @@ void MaskControl() {
 		cout << "Hubo algun fallo";
 		exit(EXIT_FAILURE);
 	}
+
+	cout << endl;
+
 }
 
 //ID: 299928
@@ -87,9 +92,9 @@ void ControlInAsm() {
 	*/
 	cout << "Ingrese el primer numero entero: ";
 	cin >> a;
-	cout << endl << "Ingrese el segundo numero entero: ";
+	cout << "Ingrese el segundo numero entero: ";
 	cin >> b;
-	cout << endl << "Ingrese el tercer numero entero: ";
+	cout << "Ingrese el tercer numero entero: ";
 	cin >> c;
 
 	//Se llama a la función IsValidAssembly
@@ -97,13 +102,16 @@ void ControlInAsm() {
 		cout << "Algo salió mal" << std::endl;
 		exit(EXIT_FAILURE);
 	}
+
+	cout << endl;
+
 }
 
 void CheckArray() {
 	unsigned char array[3];
 
 	// Se piden tres valores de 8 bits ( 1 byte )
-	cout << "Ingrese tres valores (8 bits): ";
+	cout << "Ingrese tres valores (8 bits): " << endl;
 	cin >> array[0] >> array[1] >> array[2];
 
 	unsigned char result = array[0] & array[1] & array[2]; // Se realiza la operación AND, a nivel de bit, entre los tres valores 
@@ -115,14 +123,16 @@ void CheckArray() {
 		cout << "Fallo" << endl;
 		exit(EXIT_FAILURE);
 	}
+
+	cout << endl;
 }
 
 
 int main()
 {
-	//ControlWithReversedStrings();
-	//MaskControl();
-	//ControlInAsm();
+	ControlWithReversedStrings();
+	MaskControl();
+	ControlInAsm();
 	CheckArray();
 	return 0;
 }
