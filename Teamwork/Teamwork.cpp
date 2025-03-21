@@ -21,7 +21,7 @@ void ControlWithReversedStrings() {
 	*/
 	if (strlen(string1) < 10 || string1[0] != string1[8]) {
 		cout << "Acceso incorrecto" << endl;
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 
 	//Segunda cadena
@@ -33,7 +33,7 @@ void ControlWithReversedStrings() {
 	*/
 	if (strcmp(strrev(string2), "9n7g4fd1") != 0) {
 		cout << "El acceso no fue correcto" << endl;
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 
 }
@@ -55,16 +55,16 @@ void MaskControl() {
 	cout << endl;
 	//Se comprueba si el bit en la posicion 9 es 0
 	if ((a & firstMask) != 0) {
-		cout << "Acceso erróneo";
-		exit(1);
+		cout << "Acceso erroneo" << endl;
+		exit(EXIT_FAILURE);
 	}
 	//Se comprueba si el bit en la posicion 8 del primer numero es igual al bit en la posicion 2 del segundo numero
 	if (((a & secondMask) >> 8) != ((b & thirdMask) >>2)) {
-		cout << "Intruso detectado";
-		exit(1);
+		cout << "Intruso detectado" << endl;
+		exit(EXIT_FAILURE);
 	}
 
-	unsigned int bitsBajos = 32 - 9; //Obitne los bits bajos segun el enunciado
+	unsigned int bitsBajos = 32 - 9; //Obtiene los bits bajos segun el enunciado
 	unsigned int bitsA = (a >> bitsBajos) << bitsBajos; //Nos quedamos con los 9 bits mas altos del primer numero
 	unsigned int bitsB = b & ((1 << bitsBajos) - 1); //Nos quedamos con los bits bajos del segundo numero
 	unsigned int number = bitsA | bitsB; //Calculamos el numero
@@ -72,7 +72,7 @@ void MaskControl() {
 	//Hacemos la comprobación pedida en el guión
 	if (number <= 900) {
 		cout << "Hubo algun fallo";
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 }
 
@@ -82,36 +82,47 @@ void ControlInAsm() {
 	int b = 0;
 	int c = 0;
 
+	/**
+	* Pide tres números para después comprobar si son válidos o no. Si no lo son, se imprime "Algo salió mal" y se llama a exit
+	*/
+	cout << "Ingrese el primer numero entero: ";
 	cin >> a;
+	cout << endl << "Ingrese el segundo numero entero: ";
 	cin >> b;
+	cout << endl << "Ingrese el tercer numero entero: ";
 	cin >> c;
 
+	//Se llama a la función IsValidAssembly
 	if (IsValidAssembly(a, b, c) == 0) {
 		cout << "Algo salió mal" << std::endl;
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 }
 
 void CheckArray() {
 	unsigned char array[3];
 
-	cout << "Ingrese tres valores enteros (8 bits): ";
+	// Se piden tres valores de 8 bits ( 1 byte )
+	cout << "Ingrese tres valores (8 bits): ";
 	cin >> array[0] >> array[1] >> array[2];
 
-	unsigned char result = array[0] & array[1] & array[2];
+	unsigned char result = array[0] & array[1] & array[2]; // Se realiza la operación AND, a nivel de bit, entre los tres valores 
 
-	if (result != 200) {  // 200 en decimal = 11001000 en binario
+	// Si el resultado de la operación AND es distinto de 200, se imprime "Fallo" y se llama a exit
+	if (result != 200) {  // 200 en decimal = 11001000 en binario = C8 en hexadecimal
+		// el resultado de la operación AND entre 11001000 y 11001000 es 11001000
+		// que codifca ╚
 		cout << "Fallo" << endl;
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 }
 
 
 int main()
 {
-	ControlWithReversedStrings();
-	MaskControl();
-	ControlInAsm();
+	//ControlWithReversedStrings();
+	//MaskControl();
+	//ControlInAsm();
 	CheckArray();
 	return 0;
 }
