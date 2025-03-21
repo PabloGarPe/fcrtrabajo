@@ -181,20 +181,75 @@ breakable = true
 \newpage
 
 \section{Introducción}
--- Breve explicación
+La presente memoria da cuenta del desarrollo de la Fase I del trabajo práctico correspondiente a la asignatura Fundamentos de Computadores y Redes, con el propósito de profundizar en los conceptos generales tratados en los laboratorios de la citada asignatura. A través de la implementación de un sistema de control de licencias parametrizado, se integran conocimientos relativos al lenguaje \texttt{C/C++} y al ensamblador sobre arquitectura \texttt{Intel x86-64}, abordando aspectos fundamentales como el manejo de bits, máscaras, desplazamientos y estructuras de control.\vspace{3ex}
+
+
 
 \section{ID}
--- Explicación de la ID
+Para el desarrollo del presente proyecto se ha seleccionado como identificador de referencia el número \textit{UO300028}, al ser el más bajo entre los disponibles dentro del grupo, conforme a lo estipulado en la guía oficial de la práctica. No obstante, cabe señalar que, en determinados fragmentos del código —como se detallará en secciones posteriores de esta memoria—, se ha optado por la utilización de identificadores alternativos. Esta decisión ha respondido a la necesidad de preservar la coherencia lógica y funcional del programa, la cual se veía comprometida al emplear un único identificador de forma estricta en todos los contextos del desarrollo.
+\vspace{3ex}
 
 \section{Desarrollo del programa}
 \subsection{Descripción general}
--- Descripción general del programa + lenguajes
+El programa desarrollado consiste en un sistema simplificado de control de licencias, parametrizado mediante un identificador numérico asociado al número de matrícula universitaria. Su implementación combina el lenguaje \texttt{C++}, utilizado para la lógica principal y la gestión de entrada/salida, con código en ensamblador \texttt{x86-64} para una función específica de validación. Todo el desarrollo se ha realizado en el entorno \textit{Visual Studio}, respetando la configuración proporcionada por la asignatura (\texttt{Teamwork}).
+
+
 
 \subsection{Funciones implementadas}
--- Descripción de las funciones implementadas con: nombre, descripción, lógica, fragmentos relevantes de código, ejemplo de entrada válida, ejemplo de entrada inválida, ejemplo de salida
+\subsubsection{\texttt{ControlWithReversedStrings()}}
+La función implementada tiene por objeto la verificación del formato de dos cadenas introducidas por el usuario a través de la consola, conforme a los criterios establecidos en el enunciado de la práctica. Para la inversión de la segunda cadena, se ha recurrido a la función nativa \texttt{strrev()}, propia del lenguaje \texttt{C++}, lo que permite una manipulación directa y eficiente de las estructuras de texto. A continuación, se muestran sendos ejemplos de entrada válida e inválida:
+\begin{itemize}
+  \item \textbf{Entrada válida:} \texttt{aaaaaaaaaaaaaa} y \texttt{1df4g7n9}
+  \item \textbf{Entrada inválida:} \texttt{a} y \texttt{a}
+\end{itemize}
+
+\vspace{3ex}
+
+\subsubsection{\texttt{MaskControl()}}
+La función comprueba el formato de dos enteros recibidos por consola siguiendo las reglas impuestas en el guión de la práctica. (Añadir más información)? A continuación, se muestran sendos ejemplos de entrada válida e inválida:
+\begin{itemize}
+  \item \textbf{Entrada válida:} 
+  \item \textbf{Entrada inválida:}
+\end{itemize}
+
+\vspace{3ex}
+
+\subsubsection{\texttt{ControlInAsm()}}
+Blablabla
+
+\vspace{3ex}
+
+\subsubsection{\texttt{CheckArray()}}
+Blablabla
+
+\vspace{3ex}
 
 \section{Cuestiones}
+A continuación se presentan las respuestas a las cuestiones planteadas en el guión de la práctica. \vspace{2ex}
 
-\subsection{Distribución del trabajo}
+\subsection{Cuestión 1}
+\vspace{3ex}
+
+\subsection{Cuestión 2}
+\vspace{3ex}
+
+\subsection{Cuestión 3}
+\vspace{3ex}
+
+\subsection{Cuestión 4}
+\vspace{3ex}
+
+\vspace{3ex}
+\section{Distribución del trabajo}
+La implementación del proyecto se ha organizado siguiendo una estrategia de trabajo colaborativo, basada en la asignación individual de cada una de las funciones principales descritas en el enunciado. Cada integrante del grupo asumió la responsabilidad del desarrollo, depuración y validación de una función específica, lo que favoreció una distribución equilibrada de las tareas y una mayor especialización técnica en cada componente del sistema. \vspace{2ex}
+
+\noindent Como soporte para el trabajo en equipo, se ha utilizado el sistema de control de versiones distribuido \textit{Git} en combinación con la plataforma \textit{Github} como repositorio remoto centralizado. El grupo ha adoptado un flujo de trabajo basado en la estrategia de \textit{feature branching}, en la cual cada funcionalidad fue desarrollada en una rama independiente derivada de la rama principal \texttt{main}. Una vez finalizada la implementación de cada funcionalidad, se procedía a la apertura de una \texttt{pull request (PR)}, a través de la cual se solicitaba la revisión del código por parte de los demás integrantes. \vspace{2ex}
+
+\noindent Este enfoque ha permitido establecer un proceso sistemático de \textit{code review}, mediante el cual cada \texttt{commit} propuesto era examinado antes de su integración definitiva en la rama principal del repositorio. Asimismo, se han empleado herramientas integradas de GitHub como la resolución de \textit{merge conflicts}, en caso de ser necesarios. Las revisiones cruzadas entre miembros han servido tanto para detectar errores lógicos como para asegurar la consistencia del estilo y la correcta integración de las distintas partes del código. \vspace{2ex}
+
+\noindent Gracias a este flujo de trabajo, se ha logrado mantener una trazabilidad completa de los cambios, facilitar la colaboración asíncrona y reforzar la calidad del desarrollo mediante la incorporación de prácticas propias del desarrollo profesional de software.\vspace{2ex}
+
+\noindent El repositorio que ha servido como entorno de trabajo colaborativo se encuentra alojado en la plataforma \textit{GitHub}, bajo el siguiente enlace: \href{https://github.com/PabloGarPe/fcrtrabajo}{https://github.com/PabloGarPe/fcrtrabajo}. Cabe señalar que, en el momento de redacción de esta memoria, el repositorio permanece configurado como privado, por lo que su acceso podría no estar disponible de forma pública. No obstante, se encuentra íntegramente documentado y estructurado conforme a las convenciones adoptadas durante el desarrollo, con un historial completo de \textit{commits}, ramas y solicitudes de fusión que evidencian el flujo de trabajo seguido por el grupo.
+
 
 \end{document}
