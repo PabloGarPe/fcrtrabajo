@@ -39,7 +39,7 @@ El proyecto se dividirá de la siguiente manera:
 |----------------------|-------------------|------------------|
 | ControlWithReversedStrings | Diego |Falta Testeo           |
 | MaskControl          | Pablo |Falta Testeo           |
-| ControlInAsm         | Fernando |Falta Testeo          |
+| ControlInAsm         | Fernando |Finalizado         |
 | CheckArray           | Jorge |Falta Testeo           |
 
 
@@ -57,9 +57,8 @@ El proyecto se ha desarrollando siguiendo la dinámica *feature branching*. Así
 - **Crear una nueva rama para feature**:
   - Cada funcionalidad, corrección o mejora se desarrolla en su propia rama
     ```bash
-    git checkout develop
-    git pull origin develop
-    git checkout -b feature/nombre-descriptivo
+    git pull origin
+    git switch -b feature/nombre-descriptivo
     ```
   - Finalmente, para incorporar la funcionalidad al *main*, hay que abrir un pull request en GitHub desde la rama `feature-nombre` hacia la rama `main`.
 
