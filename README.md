@@ -35,12 +35,12 @@ cd fcrtrabajo
 ## Asignación de Tareas
 El proyecto se dividirá de la siguiente manera:
 
-| Tarea                | Responsable       | Estado |
-|----------------------|-------------------|------------------|
-| ControlWithReversedStrings | Diego |Falta Testeo           |
-| MaskControl          | Pablo |Falta Testeo           |
-| ControlInAsm         | Fernando |Falta Testeo          |
-| CheckArray           | Jorge |Falta Testeo           |
+| Tarea                | Responsable       | Estado            |
+|----------------------|-------------------|-------------------|
+| ControlWithReversedStrings | Diego |Terminado                |
+| MaskControl          | Pablo |Terminado                      |
+| ControlInAsm         | Fernando |Terminado                   |
+| CheckArray           | Jorge |Terminado                      |
 
 
 ## Flujo del Repositorio
