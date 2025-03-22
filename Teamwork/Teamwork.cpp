@@ -51,8 +51,8 @@ void MaskControl() {
 	unsigned int b;
 
 	unsigned int maskId2 = 0x200;	// 00000000 00000000 00000010 00000000. Id[2] = 9
-	unsigned int MaskId5 = 0x100;	// 00000000 00000000 00000001 00000000. Id[5] = 8
-	unsigned int MaskId0 = 0x4;		// 00000000 00000000 00000000 00000100. Id[0] = 2
+	unsigned int maskId5 = 0x100;	// 00000000 00000000 00000001 00000000. Id[5] = 8
+	unsigned int maskId0 = 0x4;		// 00000000 00000000 00000000 00000100. Id[0] = 2
 
 
 	cout << "Ingresa el primer numero: ";
@@ -67,7 +67,7 @@ void MaskControl() {
 	}
 
 	//Se comprueba si el bit en la posicion 8 del primer numero es igual al bit en la posicion 2 del segundo numero
-	if (((a & MaskId5) >> 8) != ((b & MaskId0) >>2)) {
+	if (((a & maskId5) >> 8) != ((b & maskId0) >>2)) {
 		cout << "Intruso detectado" << endl;
 		exit(EXIT_FAILURE);
 	}
