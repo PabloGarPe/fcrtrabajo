@@ -21,8 +21,6 @@
 \usepackage{makecell}
 \usepackage{nicematrix}
 
-\newfontfamily\myfont{Consolas}
-
 \graphicspath{ {images/}}
 
 
@@ -569,7 +567,85 @@ Como hemos visto previamente, para la correcta desactivación de la bomba, algun
   \item \texttt{314159, 271828} para la tercera etapa.
   \item \texttt{hespaña} para la cuarta etapa.
 \end{enumerate}
+\vspace{3ex}
+
+\section{Modificación del ejecutable}
+
+El procedimiento llevado a cabo para modificar el ejecutable ha seguido una metodología similar a la aplicada durante las fases de análisis anteriores. Se ha empleado el desensamblador integrado en Visual Studio para examinar el código binario de la bomba, el cual, como se ha descrito previamente, está estructurado en cuatro etapas, invocadas mediante instrucciones \texttt{call}.\vspace{2ex}
+
+\noindent Con el objetivo de evitar la ejecución de las distintas etapas sin alterar las entradas, se procedió a modificar las instrucciones de llamada (\texttt{call}) sustituyéndolas por instrucciones de no operación (\texttt{nop}), empleando para ello el editor hexadecimal \texttt{HxD}.\vspace{2ex}
+
+\subsection{Primera llamada}
+\noindent En el desensamblado, la llamada al procedimiento \texttt{Stage1} se observa de la siguiente forma:
+\begin{center}
+\includegraphics[width=0.95\textwidth]{4-1.png}
+\end{center}
 \vspace{2ex}
+
+\noindent Posteriormente, utilizando la herramienta \texttt{HxD}, se localizó la secuencia de bytes \texttt{E8 82 46 00 00}, correspondiente a la instrucción de llamada al procedimiento \texttt{Stage1}:
+\vspace{1ex}
+\begin{center}
+\includegraphics[width=0.95\textwidth]{4-4.png}
+\end{center}
+\vspace{2ex}
+
+\noindent Esta secuencia fue reemplazada por:
+\begin{center}
+\includegraphics[width=0.57\textwidth]{4-5.png}
+\end{center}
+\vspace{1ex}
+
+\noindent y posteriormente modificada a \texttt{90 90 90 90 90}, donde cada \texttt{90} corresponde a una instrucción \texttt{nop}:
+\vspace{1ex}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{4-6.png}
+\end{center}
+\vspace{2ex}
+
+De este modo, al ejecutarse el programa, en lugar de realizar la llamada al procedimiento \texttt{Stage1}, simplemente se ejecutan instrucciones \texttt{nop}, que no alteran el flujo del programa, permitiendo así avanzar a la siguiente instrucción de forma segura.
+
+\vspace{2ex}
+
+\subsection{Segunda llamada}
+\noindent Aplicando el mismo procedimiento, se localizó la llamada correspondiente a la segunda etapa, cuya secuencia de bytes es \texttt{E8 35 46 00 00}:
+\begin{center}
+\includegraphics[width=0.85\textwidth]{4-2.png}
+\end{center}
+
+\noindent Esta instrucción también fue reemplazada por instrucciones \texttt{nop}, inhabilitando así la ejecución de \texttt{Stage2}.
+
+\vspace{3ex}
+
+\subsection{Tercera llamada}
+\noindent Del mismo modo, para el procedimiento \texttt{Stage3}, la llamada identificada fue:
+\begin{center}
+\includegraphics[width=0.85\textwidth]{4-3.png}
+\end{center}
+\vspace{1ex}
+
+\noindent La cual se corresponde igualmente con la secuencia de bytes \texttt{E8 82 46 00 00}, que fue sustituida por instrucciones \texttt{nop} para anular la llamada.
+
+\vspace{3ex}
+
+\subsection{Cuarta llamada}
+\noindent Finalmente, la llamada al procedimiento \texttt{Stage4} estaba representada por la secuencia de bytes \texttt{E8 CF 46 00 00}:
+\begin{center}
+\includegraphics[width=0.9\textwidth]{4-7.png}
+\end{center}
+\vspace{1ex}
+
+\noindent Esta última llamada fue igualmente modificada para evitar su ejecución mediante la sustitución por instrucciones \texttt{nop}.
+
+\vspace{2ex}
+
+\noindent De esta manera, al ejecutar el programa modificado, todas las llamadas a las etapas son omitidas, avanzando directamente en el flujo de \texttt{main}. Como resultado, el programa muestra inmediatamente el mensaje que indica la desactivación exitosa de la bomba:
+
+\begin{center}
+\includegraphics[width=0.3\textwidth]{4-8.png}
+\end{center}
+\vspace{3ex}
+
+
 
 \section{Distribución del trabajo}
 \subsection{Estrategia de trabajo}
@@ -579,10 +655,12 @@ La implementación del proyecto se ha organizado siguiendo una estrategia de tra
 
 \noindent Gracias a estas herramientas, se ha podido llevar a cabo un trabajo colaborativo eficiente, permitiendo a cada miembro del grupo realizar sus aportaciones de manera individual y realizar una propuesta en común de los resultados obtenidos.
 
-\noindent El repositorio que ha servido como entorno de trabajo colaborativo se encuentra alojado en la plataforma \textit{GitHub}, bajo el siguiente enlace: \href{https://github.com/PabloGarPe/fcrtrabajo}{https://github.com/PabloGarPe/fcrtrabajo}. A diferencia de la primera fase, para la entrega este repositorio ya se encontrará abierto públicamente.\vspace{3ex}
+\noindent El repositorio que ha servido como entorno de trabajo colaborativo se encuentra alojado en la plataforma \textit{GitHub}, bajo el siguiente enlace: \href{https://github.com/PabloGarPe/fcrtrabajo}{https://github.com/PabloGarPe/fcrtrabajo}. A diferencia de la primera fase, para la entrega este repositorio ya se encontrará abierto públicamente.\vspace{5ex}
 
 \subsection{Distribución de tareas}
-Tal como se ha expuesto anteriormente, la distribución de tareas se ha estructurado en torno a la asignación individual de las partes del trabajo a los distintos integrantes del grupo. Tras el análisis individual se realizó una puesta en común de los resultados obtenidos, con el fin de que todos los miembros del grupo tuvieran un conocimiento general de la práctica y de los resultados obtenidos, además de facilitar la realización de la memoria. A continuación, se detalla la asignación específica de tareas realizada por cada miembro del equipo: \vspace{1ex}
+Tal como se ha expuesto anteriormente, la distribución de tareas se ha estructurado en torno a la asignación individual de las partes del trabajo a los distintos integrantes del grupo. Tras el análisis individual se realizó una puesta en común de los resultados obtenidos, con el fin de que todos los miembros del grupo tuvieran un conocimiento general de la práctica y de los resultados obtenidos, además de facilitar la realización de la memoria. \vspace{2ex}
+
+\noindent A continuación, se detalla la asignación específica de tareas realizada por cada miembro del equipo: \vspace{1ex}
 \begin{center}
   \renewcommand{\arraystretch}{1.2}
   \begin{tabular}{|c|c|}
@@ -591,7 +669,7 @@ Tal como se ha expuesto anteriormente, la distribución de tareas se ha estructu
     \hline
     Diego Díaz Mendaña & \textit{Stage 2} y \textit{memoria} \\
     Pablo García Pernas & \textit{Stage 1} y \textit{Stage 3} \\
-    Fernando Suárez Fernández & \textit{Cosa del final} \\
+    Fernando Suárez Fernández & \textit{Modificación del exe} \\
     Jorge Gota Ortín & \textit{Stage 4} \\
     \hline
   \end{tabular}
@@ -606,10 +684,10 @@ A continuación, se especifica el tiempo estimado invertido por cada miembro, co
     \hline
     \textbf{Integrante}\cellcolor{azulSuave} & \textbf{Tiempo dedicado}\cellcolor{azulSuave} \\
     \hline
-    Diego Díaz Mendaña & 5 horas \\
+    Diego Díaz Mendaña & 4 horas y 30 minutos \\
     Pablo García Pernas & 3 horas y 30 minutos \\
-    Fernando Suárez Fernández & 3 horas \\
-    Jorge Gota Ortín & 3 horas Z\\
+    Fernando Suárez Fernández & 3 horas, 33 minutos y 33 segundos \\
+    Jorge Gota Ortín & 3 horas y 30 minutos\\
     \hline
   \end{tabular}
 \end{center}
