@@ -16,7 +16,6 @@
 *.log
 
 # 🟢 Ejecutables y bibliotecas
-*.exe
 *.dll
 *.lib
 *.exp
