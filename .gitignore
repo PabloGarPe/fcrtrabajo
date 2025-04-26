@@ -8,7 +8,6 @@
 # 🟢 Archivos del compilador y salida de compilación
 *.obj
 *.pch
-*.pdb
 *.ilk
 *.idb
 *.tlog
@@ -16,7 +15,6 @@
 *.log
 
 # 🟢 Ejecutables y bibliotecas
-*.exe
 *.dll
 *.lib
 *.exp
