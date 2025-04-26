@@ -445,14 +445,13 @@ El procedimiento \texttt{main} realiza una llamada a \texttt{Stage3} mediante la
 
   \item \textbf{Comprobaciones:} Se realizan verificaciones específicas sobre los bits procesados:
   \begin{itemize}
-    \item Si el valor almacenado en \texttt{[ebp-0Ch]} (bit 3 del segundo número) difiere del valor de \texttt{edx}, se activa la bomba: \vspace{1ex}
+    \item Si el valor almacenado en \texttt{[ebp-0Ch]} (bit 15 del primer número) difiere del valor de \texttt{edx} (que almacena el bit 3 del primer número), se activa la bomba: \vspace{1ex}
     \begin{lstlisting}[style=assemblyStyle]
       00445E38  CMP dword ptr [ebp-0Ch], edx
       00445E3B  JNE Stage3+56h (00445E4Eh)
     \end{lstlisting}
     \vspace{1ex}
-    \item Si el bit 15 del primer número (\texttt{[ebp-10h]}) es igual a 1, el programa explota. \vspace{1ex}
-    \item Si el bit 11 del segundo número (\texttt{[ebp-14h]}) es igual a 1, el programa igualmente explota. \vspace{1ex}
+    \item Si no, continua y si el bit 11 del segundo número (\texttt{[ebp-14h]}) es igual a 0, el programa igualmente explota. \vspace{1ex}
   \end{itemize}
 
   \item \textbf{Finalización:} Si todas las condiciones son satisfechas correctamente, el procedimiento invoca a \texttt{Defuse} y retorna al \texttt{main} utilizando la instrucción \texttt{ret}, de manera análoga a las fases anteriores.
