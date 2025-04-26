@@ -33,6 +33,7 @@ cd fcrtrabajo
 
 
 ## Asignación de Tareas
+### Primera fase:
 El proyecto se dividirá de la siguiente manera:
 
 | Tarea                | Responsable       | Estado            |
@@ -42,6 +43,13 @@ El proyecto se dividirá de la siguiente manera:
 | ControlInAsm         | Fernando |Terminado                   |
 | CheckArray           | Jorge |Terminado                      |
 
+### Segunda fase:
+El proyecto se dividirá de la siguiente manera
+
+| Tarea                | Responsable       | Estado            |
+|----------------------|-------------------|-------------------|
+| Obtención de palabra | Diego, Pablo, Jorge | Proceso |
+| Desactivación de Bomba | Fernando | Falta comprobar |
 
 ## Flujo del Repositorio
 
