@@ -48,8 +48,8 @@ El proyecto se dividirá de la siguiente manera
 
 | Tarea                | Responsable       | Estado            |
 |----------------------|-------------------|-------------------|
-| Obtención de palabra | Diego, Pablo, Jorge | Proceso |
-| Desactivación de Bomba | Fernando | Falta comprobar |
+| Obtención de palabra | Diego, Pablo, Jorge | Terminado |
+| Desactivación de Bomba | Fernando | Terminado |
 
 ## Flujo del Repositorio
 
